@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Dainty Digital Design
-description: Gentle, organised printables and planners — warm minimalism that feels like a quiet morning.
+description: Gentle digital art prints and wall art — warm minimalism that feels like a quiet morning.
 colors:
   ink: "#3d3746"
   ink-soft: "#635d6e"
@@ -198,7 +198,7 @@ components:
 
 ## Overview
 
-Dainty Digital Design is a brand for gentle, organised printables and planners. The visual identity evokes a quiet morning — warm, unhurried, and intentionally crafted. Every design decision serves the principle that organisation should feel calming, not clinical. The palette draws from aged paper, dried rose petals, and warm gold; typography uses the platform's system fonts with optical sizing so text reads beautifully at every scale; glass morphism creates depth without heaviness. Motion is spring-based, interruptible, and respects `prefers-reduced-motion`.
+Dainty Digital Design is a brand for gentle digital art prints and wall art. The visual identity evokes a quiet morning — warm, unhurried, and intentionally crafted. Every design decision serves the principle that good art should feel accessible. The palette draws from aged paper, dried rose petals, and warm gold; typography uses the platform's system fonts with optical sizing so text reads beautifully at every scale; glass morphism creates depth without heaviness. Motion is spring-based and respects `prefers-reduced-motion`.
 
 ## Colors
 
