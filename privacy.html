@@ -5,128 +5,241 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Dainty Digital Design</title>
 <meta name="description" content="Privacy policy for Dainty Digital Design.">
+
+<!-- Preconnect for fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <style>
+  /* ===== DESIGN TOKENS (shared with index.html) ===== */
   :root {
-    --ink: #4a4458;
-    --ink-soft: #6b6478;
-    --accent: #b0809a;
-    --accent-deep: #9a6b85;
-    --paper: #fbf7f3;
-    --line: #efe6e0;
+    --ink: #3d3746;
+    --ink-soft: #635d6e;
+    --ink-muted: #8d8696;
+    --accent: #b8889e;
+    --accent-deep: #a07086;
+    --accent-soft: #d4b8c4;
+    --paper: #fdfaf6;
+    --paper-warm: #faf5ef;
+    --card: rgba(255, 255, 255, 0.85);
+    --card-solid: #ffffff;
+    --line: rgba(190, 175, 185, 0.35);
+    --line-strong: rgba(160, 140, 150, 0.5);
     --gold: #c9a27e;
+    --gold-soft: #e0c9a8;
+    --shadow-soft: rgba(61, 55, 70, 0.06);
+    --shadow-medium: rgba(61, 55, 70, 0.1);
+    --shadow-strong: rgba(61, 55, 70, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-blur: 24px;
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px; --space-16: 64px; --space-20: 80px;
+    --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, "Ubuntu", sans-serif;
+    --font-serif: "Georgia", "Times New Roman", serif;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+    --transition-fast: 120ms cubic-bezier(0.2, 0, 0.38, 1);
+    --transition-base: 200ms cubic-bezier(0.2, 0, 0.38, 1);
+    --transition-spring: cubic-bezier(0.2, 0.6, 0.3, 1.2);
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #ebe8ee; --ink-soft: #b8b3c0; --ink-muted: #8d8696;
+      --accent: #d4b8c4; --accent-deep: #e0c4d0; --accent-soft: #a08896;
+      --paper: #1a181c; --paper-warm: #221f24;
+      --card: rgba(34, 31, 36, 0.85); --card-solid: #2a272e;
+      --line: rgba(160, 140, 150, 0.25); --line-strong: rgba(180, 160, 170, 0.4);
+      --gold: #d4b890; --gold-soft: #e8d4b8;
+      --shadow-soft: rgba(0, 0, 0, 0.2); --shadow-medium: rgba(0, 0, 0, 0.35); --shadow-strong: rgba(0, 0, 0, 0.5);
+      --glass-bg: rgba(34, 31, 36, 0.72); --glass-border: rgba(60, 55, 65, 0.5);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    :root { --glass-bg: var(--card-solid); --glass-border: var(--line-strong); --glass-blur: 0; }
+    .glass { backdrop-filter: none !important; background: var(--card-solid) !important; border: 1px solid var(--line-strong) !important; }
+  }
+
+  @media (prefers-contrast: more) {
+    :root { --ink: #1a181c; --ink-soft: #3d3746; --accent: #7a5060; --accent-deep: #5d3a48; --line: #a08a96; --card: var(--card-solid); --glass-bg: var(--card-solid); --glass-border: #a08a96; }
+    @media (prefers-color-scheme: dark) { --ink: #ffffff; --ink-soft: #d0ccd8; --accent: #e8cce0; --accent-deep: #f0d8e8; --line: #c8b0bc; }
+  }
+
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 100%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
-    font-family: "Georgia", "Times New Roman", serif;
-    color: var(--ink);
+    font-family: var(--font-sans); font-size: 1rem; line-height: 1.7; color: var(--ink);
     background: var(--paper);
-    line-height: 1.75;
+    background-image: radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-soft) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 100% 100%, var(--gold-soft) 0%, transparent 50%);
+    background-attachment: fixed; min-height: 100vh; display: flex; flex-direction: column;
   }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
-  header { text-align: center; padding: 60px 24px 26px; }
-  .brand {
-    font-family: "Georgia", serif;
-    font-size: 14px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 18px;
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) { body { background-image: none; } }
+  ::selection { background: var(--accent-soft); color: var(--ink); }
+  :focus:not(:focus-visible) { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--radius-sm); }
+  a { color: var(--accent-deep); text-decoration: none; transition: color var(--transition-fast), opacity var(--transition-fast); }
+  a:hover { color: var(--accent); }
+  a:active { opacity: 0.7; }
+
+  /* ===== GLASS MORPHISM ===== */
+  .glass {
+    background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+    box-shadow: 0 1px 2px var(--shadow-soft), 0 4px 12px var(--shadow-medium), inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
-  h1 { font-weight: normal; font-size: 30px; letter-spacing: 1px; }
-  .flourish {
-    width: 44px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    margin: 22px auto;
-  }
-  section { margin-bottom: 34px; }
-  h2 {
-    font-weight: normal;
-    font-size: 20px;
-    color: var(--accent-deep);
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-  }
-  p { color: var(--ink-soft); margin-bottom: 12px; }
-  .updated { text-align: center; color: var(--gold); font-size: 14px; font-style: italic; margin-bottom: 30px; }
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 30px 24px 40px;
-    text-align: center;
-    color: var(--ink-soft);
-    font-size: 14px;
-  }
-  footer a { color: var(--accent-deep); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-  footer .sep { margin: 0 10px; color: var(--gold); }
+
+  /* ===== LAYOUT ===== */
+  .wrap { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 var(--space-6); }
+  .section { padding: var(--space-16) 0; }
+  @media (max-width: 640px) { .section { padding: var(--space-12) 0; } .wrap { padding: 0 var(--space-4); } }
+
+  /* ===== TYPOGRAPHY ===== */
+  .display-1 { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; font-optical-sizing: auto; color: var(--ink); }
+  .display-3 { font-family: var(--font-display); font-size: clamp(1.375rem, 3vw, 1.75rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.015em; font-optical-sizing: auto; color: var(--ink); }
+  .body { font-size: 1rem; line-height: 1.75; color: var(--ink-soft); }
+  .body-lg { font-size: 1.125rem; line-height: 1.7; color: var(--ink-soft); letter-spacing: -0.005em; }
+  .label { font-family: var(--font-display); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+
+  /* ===== BUTTONS ===== */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); font-family: var(--font-sans); font-size: 0.9375rem; font-weight: 500; letter-spacing: 0.01em; line-height: 1; padding: var(--space-3) var(--space-6); border-radius: var(--radius-full); border: none; cursor: pointer; text-decoration: none; white-space: nowrap; transition: transform var(--transition-fast) var(--transition-spring), background var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast); will-change: transform, box-shadow; }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .btn:active { transform: scale(0.96); transition-duration: 60ms; }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 1px 2px var(--shadow-soft), 0 4px 12px rgba(176, 128, 154, 0.35); }
+  .btn-primary:hover { background: var(--accent-deep); box-shadow: 0 2px 4px var(--shadow-soft), 0 8px 20px rgba(176, 128, 154, 0.45); transform: translateY(-1px); }
+  .btn-secondary { background: var(--card); color: var(--ink); border: 1px solid var(--line); backdrop-filter: blur(var(--glass-blur)) saturate(180%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%); }
+  .btn-secondary:hover { background: var(--card-solid); border-color: var(--accent-soft); transform: translateY(-1px); box-shadow: 0 4px 16px var(--shadow-medium); }
+  .btn-lg { padding: var(--space-4) var(--space-8); font-size: 1rem; }
+
+  /* ===== FLOURISH ===== */
+  .flourish { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); margin: 0 auto; }
+
+  /* ===== HEADER ===== */
+  .site-header { position: sticky; top: 0; z-index: 100; padding: var(--space-4) 0; background: linear-gradient(to bottom, var(--paper), transparent); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+  .nav-brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: inherit; }
+  .nav-brand:hover { color: inherit; }
+  .nav-logo { width: 36px; height: 36px; border-radius: var(--radius-md); background: linear-gradient(135deg, var(--accent), var(--accent-deep)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(176, 128, 154, 0.35); }
+  .nav-title { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+
+  /* ===== CONTENT ===== */
+  .policy-header { text-align: center; padding: var(--space-12) 0 var(--space-8); }
+  .policy-header .label { margin-bottom: var(--space-3); }
+  .policy-header h1 { margin-bottom: var(--space-4); }
+  .policy-header .flourish { margin-bottom: var(--space-8); }
+  .updated { text-align: center; color: var(--gold); font-size: 0.875rem; font-style: italic; margin-bottom: var(--space-10); }
+
+  .policy-content { display: flex; flex-direction: column; gap: var(--space-10); }
+  .policy-section { padding: var(--space-6); }
+  .policy-section h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; letter-spacing: -0.01em; color: var(--accent-deep); margin-bottom: var(--space-4); }
+  .policy-section p { margin-bottom: var(--space-3); }
+  .policy-section p:last-child { margin-bottom: 0; }
+  .policy-section ul { list-style: none; padding-left: var(--space-6); }
+  .policy-section li { position: relative; padding-left: var(--space-4); margin-bottom: var(--space-3); }
+  .policy-section li::before { content: "•"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+
+  /* ===== FOOTER ===== */
+  .site-footer { padding: var(--space-12) 0 var(--space-8); background: var(--paper-warm); border-top: 1px solid var(--line); margin-top: auto; }
+  .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); text-align: center; }
+  @media (max-width: 640px) { .footer-bottom { flex-direction: column; } }
+  .footer-copyright { font-size: 0.875rem; color: var(--ink-muted); }
+  .footer-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-4); }
+  .footer-links a { font-size: 0.875rem; color: var(--ink-soft); transition: color var(--transition-fast); }
+  .footer-links a:hover { color: var(--accent-deep); }
+  .footer-sep { color: var(--gold); }
+
+  /* ===== REVEAL ===== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s var(--transition-spring), transform 0.6s var(--transition-spring); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  .reveal-1 { transition-delay: 0.05s; } .reveal-2 { transition-delay: 0.1s; } .reveal-3 { transition-delay: 0.15s; }
+
+  /* ===== PRINT ===== */
+  @media print { .site-header, .site-footer, .btn { display: none !important; } .section { padding: var(--space-8) 0; } body { background: #fff; background-image: none; } .glass { background: #fff !important; backdrop-filter: none !important; box-shadow: none !important; border: 1px solid #ddd !important; } a { text-decoration: underline; color: #000 !important; } }
 </style>
 </head>
 <body>
 
-<header class="wrap">
-  <div class="brand">Dainty Digital Design</div>
-  <h1>Privacy Policy</h1>
+<header class="site-header" role="banner">
+  <div class="wrap nav">
+    <a href="/" class="nav-brand" aria-label="Dainty Digital Design — Home">
+      <div class="nav-logo" aria-hidden="true">✦</div>
+      <span class="nav-title">Dainty Digital Design</span>
+    </a>
+  </div>
 </header>
 
-<p class="wrap updated">Last updated: 3 September 2026</p>
-<div class="wrap flourish"></div>
+<main id="main" role="main">
+  <section class="section" aria-labelledby="policy-title">
+    <div class="wrap">
+      <header class="policy-header reveal">
+        <span class="label">Policy</span>
+        <h1 id="policy-title" class="display-1">Privacy Policy</h1>
+        <div class="flourish"></div>
+      </header>
+      <p class="updated reveal reveal-1">Last updated: 3 September 2026</p>
 
-<section class="wrap">
-  <h2>Overview</h2>
-  <p>
-    Dainty Digital Design sells digital printable products through our Etsy shop.
-    This website is a simple informational page about our store. We are committed
-    to keeping your personal information private and secure.
-  </p>
-</section>
+      <div class="policy-content">
+        <article class="glass reveal reveal-1 policy-section" aria-labelledby="overview-title">
+          <h2 id="overview-title">Overview</h2>
+          <p>Dainty Digital Design sells digital printable products through our Etsy shop. This website is a simple informational page about our store. We are committed to keeping your personal information private and secure.</p>
+        </article>
 
-<section class="wrap">
-  <h2>Information We Collect</h2>
-  <p>
-    This website does not collect, store, or process any personal information.
-    It is a static informational page and includes no tracking scripts, cookies,
-    or forms.
-  </p>
-  <p>
-    When you purchase from our Etsy shop, any information you provide (such as
-    your name, email address, and payment details) is handled by Etsy directly
-    under Etsy's own privacy policy. We only receive the order and delivery
-    information needed to fulfill your digital download.
-  </p>
-</section>
+        <article class="glass reveal reveal-2 policy-section" aria-labelledby="collection-title">
+          <h2 id="collection-title">Information We Collect</h2>
+          <p>This website does not collect, store, or process any personal information. It is a static informational page and includes no tracking scripts, cookies, or forms.</p>
+          <p>When you purchase from our Etsy shop, any information you provide (such as your name, email address, and payment details) is handled by Etsy directly under Etsy's own privacy policy. We only receive the order and delivery information needed to fulfill your digital download.</p>
+        </article>
 
-<section class="wrap">
-  <h2>How We Use Information</h2>
-  <p>
-    Any purchase-related information we can see is used only to deliver your
-    digital products and to respond to your enquiries. We do not sell, rent,
-    or share your personal information with third parties.
-  </p>
-</section>
+        <article class="glass reveal reveal-2 policy-section" aria-labelledby="usage-title">
+          <h2 id="usage-title">How We Use Information</h2>
+          <p>Any purchase-related information we can see is used only to deliver your digital products and to respond to your enquiries. We do not sell, rent, or share your personal information with third parties.</p>
+        </article>
 
-<section class="wrap">
-  <h2>Digital Downloads</h2>
-  <p>
-    Our products are delivered as digital files. Personal use of our printables
-    is welcome; resale or redistribution of the digital files is not permitted.
-  </p>
-</section>
+        <article class="glass reveal reveal-3 policy-section" aria-labelledby="downloads-title">
+          <h2 id="downloads-title">Digital Downloads</h2>
+          <p>Our products are delivered as digital files. Personal use of our printables is welcome; resale or redistribution of the digital files is not permitted.</p>
+        </article>
 
-<section class="wrap">
-  <h2>Contact</h2>
-  <p>
-    If you have any questions about this privacy policy, you can contact us
-    through our Etsy shop at
-    <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener">DaintyDigitalEshop</a>.
-  </p>
-</section>
+        <article class="glass reveal reveal-3 policy-section" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <p>If you have any questions about this privacy policy, you can contact us through our Etsy shop at <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener">DaintyDigitalEshop</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
 
-<footer class="wrap">
-  <span>© Dainty Digital Design</span>
-  <span class="sep">·</span>
-  <a href="/daintydigital-design/">Home</a>
-  <span class="sep">·</span>
-  <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener">Etsy Shop</a>
+<footer class="site-footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Dainty Digital Design. All rights reserved.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener">Etsy Shop</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="https://www.etsy.com/legal/policy/" target="_blank" rel="noopener">Etsy Privacy Policy</a>
+      </nav>
+    </div>
+  </div>
 </footer>
 
+<script>
+(function() {
+  'use strict';
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) { document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); return; }
+  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+</script>
 </body>
 </html>
