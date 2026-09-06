@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dainty Digital Design — gentle digital art prints</title>
+<title>Dainty Digital Design — Gentle Digital Art Prints</title>
 <meta name="description" content="Dainty Digital Design creates gentle digital art prints, wall art, and fine art collections. Download once, print forever. Shop our Etsy store for instant digital downloads.">
 
 <!-- Preconnect for fonts -->
@@ -471,6 +471,10 @@
   .btn.loading .btn-spinner { opacity: 1; transform: scale(1); }
 
   .btn-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
     width: 18px;
     height: 18px;
     border: 2px solid transparent;
@@ -480,6 +484,10 @@
     opacity: 0;
     transform: scale(0.5);
     transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .btn {
+    position: relative;
   }
 
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -1049,7 +1057,7 @@
       <a href="#products" class="nav-link">Products</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#values" class="nav-link">Values</a>
-      <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener" class="nav-link nav-cta btn btn-primary btn-lg">
+      <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener" class="nav-cta btn btn-primary btn-lg">
         <span class="btn-text">Visit Etsy Shop</span>
         <svg class="btn-spinner" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
       </a>
@@ -1066,8 +1074,8 @@
         <span class="flourish-inline" aria-hidden="true"></span>
         <span class="label-sm">Instant Delivery</span>
       </div>
-      <h1 id="hero-title" class="display-1">gentle digital art</h1>
-      <p class="hero-tagline">Thoughtfully designed digital art prints, wall art, and fine art collections — made to be downloaded once and printed at your preferred size, again and again.</p>
+      <h1 id="hero-title" class="display-1">Gentle Digital Art</h1>
+      <p class="hero-tagline">Wall art, botanical prints, and fine art collections. Download once, print at whatever size suits you.</p>
       <div class="hero-actions">
         <a href="#products" class="btn btn-primary btn-lg" data-analytics="hero-cta-products">
           <span class="btn-text">Browse Collection</span>
@@ -1087,7 +1095,7 @@
       <header class="section-header reveal">
         <span class="label">Our Collection</span>
         <h2 id="products-title" class="display-2">Digital art prints</h2>
-        <p class="body-lg">Each design is a digital download — buy once, print forever. No subscriptions, no waiting.</p>
+        <p class="body-lg">Every design is a digital download. Buy once, print forever.</p>
       </header>
 
       <div class="products-grid" role="list">
@@ -1096,7 +1104,7 @@
           <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener" class="product-card" aria-label="Browse digital art prints on Etsy">
             <div class="product-icon" aria-hidden="true">🎨</div>
             <h3>Digital Art Prints</h3>
-            <p>Thoughtfully designed wall art, botanical illustrations, and fine art prints — ready to download and print at your preferred size.</p>
+            <p>Wall art, botanical illustrations, and fine art prints. Ready to download and print at your preferred size.</p>
             <div class="product-meta">
               <span class="product-price">From $5.00 AUD</span>
               <span class="product-link">Browse on Etsy →</span>
@@ -1109,7 +1117,7 @@
           <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener" class="product-card" aria-label="Browse art collections on Etsy">
             <div class="product-icon" aria-hidden="true">📚</div>
             <h3>Collections</h3>
-            <p>Curated sets at a discount — coordinated series for gallery walls, themed spaces, or gifting.</p>
+            <p>Sets of coordinated prints for gallery walls, themed rooms, or gifting, at a lower price than buying them separately.</p>
             <div class="product-meta">
               <span class="product-price">From $12.00 AUD</span>
               <span class="product-link">Browse on Etsy →</span>
@@ -1133,32 +1141,32 @@
       <header class="section-header reveal">
         <span class="label">Our Approach</span>
         <h2 id="values-title" class="display-2">Art that respects your walls</h2>
-        <p class="body-lg">We believe good design should be accessible. Every decision — from paper size to composition — serves the artwork, not the algorithm.</p>
+        <p class="body-lg">We believe good design should be accessible. The paper size, the composition, the price: all of it serves the artwork, not the algorithm.</p>
       </header>
 
       <div class="values-grid">
         <article class="glass-card reveal reveal-1 value-card" role="listitem">
           <div class="value-icon" aria-hidden="true">✨</div>
           <h3>Gentle by design</h3>
-          <p>Soft colours, thoughtful composition, and space to breathe — so your walls feel calming, not cluttered.</p>
+          <p>Soft colours, thoughtful composition, and space to breathe. Your walls feel calming instead of cluttered.</p>
         </article>
 
         <article class="glass-card reveal reveal-2 value-card" role="listitem">
           <div class="value-icon" aria-hidden="true">♾️</div>
           <h3>Print once, enjoy forever</h3>
-          <p>No subscriptions, no expiring links. Your purchase is a high-res file you can reprint at any size, anytime.</p>
+          <p>No subscriptions, no expiring links. Your purchase is a high-res file you can reprint at any size, any time.</p>
         </article>
 
         <article class="glass-card reveal reveal-3 value-card" role="listitem">
           <div class="value-icon" aria-hidden="true">🖨️</div>
           <h3>Home-print friendly</h3>
-          <p>Optimised for standard paper sizes and home inkjets — minimal ink usage, maximum impact.</p>
+          <p>Optimised for standard paper sizes and home inkjets. Minimal ink usage, maximum impact.</p>
         </article>
 
         <article class="glass-card reveal reveal-4 value-card" role="listitem">
           <div class="value-icon" aria-hidden="true">🎨</div>
           <h3>Beauty matters</h3>
-          <p>Delicate details, thoughtful details, and a quietly confident aesthetic — because your walls deserve art you love.</p>
+          <p>Careful details and a quietly confident look. Your walls deserve art you actually love.</p>
         </article>
       </div>
     </div>
@@ -1171,8 +1179,8 @@
         <div class="about-text reveal reveal-1">
           <span class="label">About Us</span>
           <h2 id="about-title" class="display-2">Dainty Digital Design</h2>
-          <p class="body-lg">Built on a simple idea: that digital art should feel accessible. We make wall art prints, botanical illustrations, and fine art collections that are beautiful enough to display and simple enough to start with — just download, print, and hang.</p>
-          <p>Every product is a high-resolution digital download, delivered instantly through Etsy. No accounts to create, no apps to install — choose your size, choose your paper, print it your way.</p>
+          <p class="body-lg">Built on a simple idea: digital art should feel accessible. We make wall art prints, botanical illustrations, and fine art collections that are pretty enough to display and easy to start with. Download, print, hang.</p>
+          <p>Every product is a high-resolution digital download delivered instantly through Etsy. No accounts to create, no apps to install. Pick your size and paper, print it your way.</p>
           <p>Run by a solo creator who believes the best art is the art that lives on your walls.</p>
           <a href="https://www.etsy.com/shop/DaintyDigitalEshop" target="_blank" rel="noopener" class="btn btn-primary" data-analytics="about-shop-link">
             <span class="btn-text">Visit Our Etsy Shop</span>
