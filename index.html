@@ -857,34 +857,58 @@
 
   .about-text .btn { margin-top: var(--space-2); }
 
-  .about-illustration {
+  .about-slideshow {
     position: relative;
     aspect-ratio: 4/3;
     border-radius: var(--radius-xl);
-    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--gold-soft) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     box-shadow:
       0 4px 16px var(--shadow-medium),
       0 24px 48px var(--shadow-soft);
   }
 
-  .about-illustration::before {
+  .about-slideshow::before {
     content: "";
     position: absolute;
     inset: var(--space-6);
     border: 1px dashed var(--glass-border);
     border-radius: var(--radius-lg);
     opacity: 0.5;
+    pointer-events: none;
   }
 
-  .about-illustration svg {
-    width: 60%;
-    height: 60%;
-    color: var(--accent-deep);
-    opacity: 0.8;
+  .slideshow-track {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    animation: slideshow 28s linear infinite;
+    will-change: transform;
+  }
+
+  .slideshow-track img {
+    width: 320px;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: var(--radius-lg);
+  }
+
+  @keyframes slideshow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slideshow-track {
+      animation: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: var(--space-2);
+    }
+    .slideshow-track img {
+      scroll-snap-align: start;
+    }
   }
 
   /* ===== FOOTER ===== */
@@ -1195,24 +1219,21 @@
           </a>
         </div>
 
-        <div class="about-illustration reveal reveal-2" aria-hidden="true">
-          <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Stylized picture frame with abstract art -->
-            <rect x="35" y="20" width="130" height="100" rx="4" stroke="currentColor" stroke-width="2" opacity="0.3"/>
-            <!-- Frame border -->
-            <rect x="30" y="15" width="140" height="110" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
-            <!-- Inner canvas -->
-            <rect x="40" y="28" width="120" height="84" rx="3" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-            <!-- Abstract art shapes (representing wall art design) -->
-            <circle cx="80" cy="55" r="18" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-            <path d="M60 80 Q80 70 95 85 Q110 100 130 80" stroke="currentColor" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
-            <rect x="120" y="60" width="18" height="24" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-            <!-- Decorative dots -->
-            <circle cx="48" cy="112" r="2" fill="currentColor" opacity="0.3"/>
-            <circle cx="72" cy="120" r="1.5" fill="currentColor" opacity="0.3"/>
-            <circle cx="152" cy="108" r="2" fill="currentColor" opacity="0.3"/>
-            <circle cx="172" cy="122" r="1.5" fill="currentColor" opacity="0.3"/>
-          </svg>
+        <div class="about-slideshow reveal reveal-2" aria-hidden="true" role="region" aria-label="Artwork slideshow">
+          <div class="slideshow-track">
+            <img src="assets/slideshow/coastal_cliffs_heather.png" alt="Coastal cliffs with heather — wall art print" loading="lazy">
+            <img src="assets/slideshow/silent_night_cabin.png" alt="Silent night cabin scene — minimalist art print" loading="lazy">
+            <img src="assets/slideshow/abstract_terracotta_charcoal_ochre_1.png" alt="Abstract terracotta, charcoal, ochre triptych" loading="lazy">
+            <img src="assets/slideshow/amsterdam.png" alt="Amsterdam vintage city poster" loading="lazy">
+            <img src="assets/slideshow/paris.png" alt="Paris vintage city poster" loading="lazy">
+            <img src="assets/slideshow/rome.png" alt="Rome vintage city poster" loading="lazy">
+            <img src="assets/slideshow/tokyo.png" alt="Tokyo vintage city poster" loading="lazy">
+            <!-- Duplicate first 4 for seamless loop -->
+            <img src="assets/slideshow/coastal_cliffs_heather.png" alt="Coastal cliffs with heather — wall art print" loading="lazy">
+            <img src="assets/slideshow/silent_night_cabin.png" alt="Silent night cabin scene — minimalist art print" loading="lazy">
+            <img src="assets/slideshow/abstract_terracotta_charcoal_ochre_1.png" alt="Abstract terracotta, charcoal, ochre triptych" loading="lazy">
+            <img src="assets/slideshow/amsterdam.png" alt="Amsterdam vintage city poster" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
