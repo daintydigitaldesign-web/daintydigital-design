@@ -883,6 +883,11 @@
     height: 100%;
     animation: slideshow 28s linear infinite;
     will-change: transform;
+    /* Disable user interaction on slideshow images */
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
   }
 
   .slideshow-track img {
@@ -891,6 +896,10 @@
     object-fit: cover;
     flex-shrink: 0;
     border-radius: var(--radius-lg);
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
   }
 
   @keyframes slideshow {
