@@ -862,26 +862,18 @@
     aspect-ratio: 4/3;
     border-radius: var(--radius-xl);
     overflow: hidden;
+    background: var(--paper-warm);
     box-shadow:
       0 4px 16px var(--shadow-medium),
       0 24px 48px var(--shadow-soft);
   }
 
-  .about-slideshow::before {
-    content: "";
-    position: absolute;
-    inset: var(--space-6);
-    border: 1px dashed var(--glass-border);
-    border-radius: var(--radius-lg);
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
   .slideshow-track {
     display: flex;
+    gap: 0;
     width: max-content;
     height: 100%;
-    animation: slideshow 28s linear infinite;
+    animation: slideshow 44s linear infinite;
     will-change: transform;
     /* Disable user interaction on slideshow images */
     pointer-events: none;
@@ -894,12 +886,16 @@
     width: 320px;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     flex-shrink: 0;
-    border-radius: var(--radius-lg);
+    /* No border-radius — container clips the edges; avoids corner gaps */
+    background: var(--paper-warm);
+    transform: translateZ(0);
     pointer-events: none;
     user-select: none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
+    -webkit-touch-callout: none;
   }
 
   @keyframes slideshow {
